@@ -1,0 +1,78 @@
+
+server:
+  port: 8881
+
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
+
+#注册中心客户端
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true
+    metadata-map:
+      version: 2
+      gray: true
+  client:
+    serviceUrl:
+      defaultZone: http://10.16.8.96:1111/eureka/,http://10.16.8.94:1111/eureka/
+
+spring:
+#数据源
+  application:
+    name: tenantserver
+  datasource:
+    url: jdbc:mysql://10.16.8.122:3306/tenant_user?useUnicode=true&amp;characterEncoding=utf-8
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    hikari:
+      maxLifetime: 1765000
+      maximumPoolSize: 100
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: false
+  restart:
+    enabled: true
+    sensitive: false
+  trace:
+    enabled: true
+    sensitive: false
+  dump:
+    enabled: true
+    sensitive: false
+  metrics:
+    enabled: true
+    sensitive: false
+  env:
+    enabled: true
+    sensitive: false
+  health:
+    enabled: true
+    sensitive: false
+  logfile:
+    enabled: true
+    sensitive: false
+  configprops:
+    enabled: true
+    sensitive: false
+#日志级别
+logging:
+  level:
+    root: INFO
+    org.springframework.web.servlet.DispatcherServlet: INFO
+swagger:
+  title: 租户用户管理
+  version: 1.0.0.RELEASE
+  license: Apache License, Version 2.0
+  licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html
+  contact.name: tommy
+  contact.email: huangxianhui@hisense.com
+  base-package: com.hisense
+  base-path: /**
+  exclude-path: /error, /ops/**
