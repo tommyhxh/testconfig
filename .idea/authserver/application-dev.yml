@@ -1,0 +1,25 @@
+
+server:
+  port: 32003
+eureka:
+  instance:
+    ip-address: 10.16.8.121
+    instance-id: ${eureka.instance.ip-address}:${server.port}
+    prefer-ip-address: true
+
+#  client:
+#    serviceUrl:
+#      defaultZone: http://register-0.register.default.svc.cluster.local:1111/eureka/
+spring:
+  redis:
+    database: 0
+    host: redis-0.redis.default.svc.cluster.local
+    password:
+    port: 6379
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+

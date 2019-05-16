@@ -1,0 +1,22 @@
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true
+    metadata-map:
+      version: 2
+      gray: true
+  client:
+    serviceUrl:
+      defaultZone: http://saasp-register-0.saasp-register.saas-iot.svc.cluster.local:1111/eureka/
+
+spring:
+  redis:
+    host: r-2ze5146bdbaeb2b4.redis.rds.aliyuncs.com
+    password: Redis2017SaasHisenseHics
+    port: 6379
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
