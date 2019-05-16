@@ -11,8 +11,8 @@ eureka:
 
 spring:
   redis:
-    host: r-2ze5146bdbaeb2b4.redis.rds.aliyuncs.com
-    password: Redis2017SaasHisenseHics
+    host: r-xx.redis.rds.aliyuncs.com
+    password: xx
     port: 6379
     pool:
       max-active: 8
